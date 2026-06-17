@@ -2,6 +2,10 @@
   "cleanUrls": true,
   "rewrites": [
     {
+      "source": "/privacy-policy",
+      "destination": "/downloads/landing/privacy-policy.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/downloads/landing/$1"
     }

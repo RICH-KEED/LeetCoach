@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — LeetCoach</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg: #09090b;
+      --color-card-bg: rgba(255, 255, 255, 0.02);
+      --color-border: rgba(255, 255, 255, 0.08);
+      --color-text-primary: #f4f4f5;
+      --color-text-secondary: #a1a1aa;
+      --color-accent: #f59e0b;
+      --font-display: 'Outfit', 'Inter', system-ui, sans-serif;
+      --font-sans: 'Inter', system-ui, sans-serif;
+      --radius-lg: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-text-primary);
+      font-family: var(--font-sans);
+      line-height: 1.7;
+      padding: 80px 24px 60px 24px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 800px;
+      width: 100%;
+    }
+
+    .header {
+      margin-bottom: 48px;
+      border-bottom: 1px solid var(--color-border);
+      padding-bottom: 24px;
+    }
+
+    .logo-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--color-text-primary);
+      text-decoration: none;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 24px;
+      margin-bottom: 24px;
+    }
+
+    .logo-lightning {
+      color: var(--color-accent);
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      font-size: 36px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .last-updated {
+      color: var(--color-text-secondary);
+      font-size: 14px;
+    }
+
+    h2 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      margin-top: 36px;
+      margin-bottom: 16px;
+      color: var(--color-text-primary);
+    }
+
+    p {
+      color: var(--color-text-secondary);
+      margin-bottom: 20px;
+      font-size: 15px;
+    }
+
+    ul {
+      margin-left: 24px;
+      margin-bottom: 20px;
+      color: var(--color-text-secondary);
+      font-size: 15px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .highlight-box {
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-left: 3px solid var(--color-accent);
+      padding: 16px 20px;
+      border-radius: var(--radius-lg);
+      margin: 24px 0;
+    }
+
+    .highlight-box p {
+      margin-bottom: 0;
+      color: var(--color-text-primary);
+      font-weight: 500;
+    }
+
+    .footer {
+      margin-top: 60px;
+      border-top: 1px solid var(--color-border);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .back-link {
+      color: var(--color-accent);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      transition: opacity 0.2s;
+    }
+
+    .back-link:hover {
+      opacity: 0.8;
+    }
+
+    .copyright {
+      color: var(--color-text-secondary);
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <a href="/" class="logo-link">
+        <span class="logo-lightning">⚡</span> LeetCoach
+      </a>
+      <h1>Privacy Policy</h1>
+      <div class="last-updated">Last updated: June 17, 2026</div>
+    </header>
+
+    <main>
+      <p>Your privacy is of paramount importance to us. LeetCoach is designed to be a developer-centric tool that prioritizes transparency, local-first data integrity, and user control.</p>
+
+      <div class="highlight-box">
+        <p>LeetCoach does not run central API servers, does not collect telemetry, and never stores or forwards your private code submissions or configured API keys to our own servers.</p>
+      </div>
+
+      <h2>1. Information Collected & Used</h2>
+      <p>LeetCoach functions entirely as a client-side web extension. We handle information in the following ways:</p>
+      <ul>
+        <li><strong>API Credentials:</strong> Your custom API keys (e.g., OpenAI, Gemini, Groq, OpenRouter) are stored locally on your machine using Chrome / Edge synchronized storage. They are never sent to any servers other than the API endpoint you explicitly configure in Settings.</li>
+        <li><strong>LeetCode Submissions:</strong> Upon clicking the submit button on LeetCode, LeetCoach reads the problem context, description, programming language, code, runtime performance, and memory consumption. This context is used solely to form the prompt sent to your configured AI provider.</li>
+        <li><strong>Local Cache:</strong> Review results are cached in your browser's local storage to save tokens and load subsequent views instantly. No external tracking databases are used.</li>
+      </ul>
+
+      <h2>2. Third-Party Services</h2>
+      <p>When requesting an AI code review, the extension initiates direct network calls from your browser to the AI model provider endpoint you set up (such as OpenAI, Google, Groq, OpenRouter, or a local server running Ollama). Your data sent to these providers is subject to their respective terms and privacy policies:</p>
+      <ul>
+        <li><a href="https://openai.com/privacy/" target="_blank" rel="noopener noreferrer" style="color: var(--color-accent); text-decoration: none;">OpenAI Privacy Policy</a></li>
+        <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" style="color: var(--color-accent); text-decoration: none;">Google Gemini API Privacy Policy</a></li>
+        <li><a href="https://groq.com/privacy-policy/" target="_blank" rel="noopener noreferrer" style="color: var(--color-accent); text-decoration: none;">Groq Privacy Policy</a></li>
+        <li><a href="https://openrouter.ai/privacy" target="_blank" rel="noopener noreferrer" style="color: var(--color-accent); text-decoration: none;">OpenRouter Privacy Policy</a></li>
+      </ul>
+
+      <h2>3. Data Retention & Deletion</h2>
+      <p>Because all configuration data, cache files, and settings are stored locally inside the browser extension sandbox:</p>
+      <ul>
+        <li>You can delete all stored settings and keys instantly by clicking "Reset" inside the extension settings page.</li>
+        <li>Uninstalling the LeetCoach extension from your browser immediately and permanently erases all associated local data and configurations.</li>
+      </ul>
+
+      <h2>4. Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time. When we make updates, the version number of the extension is incremented, and updates are detailed in the "What's New" changelog page upon installation.</p>
+
+      <h2>5. Contact Us</h2>
+      <p>If you have any questions or feedback regarding this policy or the security of your data in LeetCoach, feel free to contact us via our GitHub repository.</p>
+    </main>
+
+    <footer class="footer">
+      <a href="/" class="back-link">← Back to Homepage</a>
+      <div class="copyright">© 2026 LeetCoach. All rights reserved.</div>
+    </footer>
+  </div>
+</body>
+</html>
