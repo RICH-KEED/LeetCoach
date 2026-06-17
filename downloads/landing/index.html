@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LeetCoach — AI Code Review for LeetCode</title>
+  <meta name="description" content="Get instant structured AI feedback on your LeetCode submissions. Uses your own API keys for OpenAI, Gemini, Groq, or local models. 100% private.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Styling -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Three.js Canvas Backdrop -->
+  <canvas id="canvas-3d"></canvas>
+  
+  <!-- Ambient Glow Elements -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+
+  <!-- Custom Glow Cursor -->
+  <div class="custom-cursor"></div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a href="#" class="logo">
+        <span class="logo-lightning">⚡</span> LeetCoach
+      </a>
+      <div class="nav-links">
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#demo" class="nav-link">Interactive Demo</a>
+        <a href="#pricing" class="nav-link">Pricing</a>
+      </div>
+      <div class="nav-cta">
+        <a href="#install" class="nav-btn-premium">Install Now</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <div class="badge-container">
+          <span class="hero-badge">⚡ Meet LeetCoach</span>
+        </div>
+        <h1 class="hero-title">
+          Get Instant <span class="gradient-text">AI Code Reviews</span> Directly on LeetCode
+        </h1>
+        <p class="hero-subtitle">
+          Accelerate your interview prep. LeetCoach automatically extracts your code, runtime, and memory upon submission — delivering structured, deep analysis covering approach, complexity, bugs, optimizations, and mock interview questions.
+        </p>
+        <div class="hero-actions">
+          <a href="#install" class="cta-btn cta-primary">Add to Edge & Chrome</a>
+          <a href="#demo" class="cta-btn cta-secondary">Try Live Demo</a>
+        </div>
+        <div class="provider-strip">
+          <span>Works with your preferred models:</span>
+          <div class="provider-badges">
+            <span class="p-badge">OpenAI GPT-4o</span>
+            <span class="p-badge">Gemini 1.5 Pro</span>
+            <span class="p-badge">Groq Llama 3</span>
+            <span class="p-badge">Ollama (Local)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Engineered to Level Up Your Coding</h2>
+        <p class="section-subtitle">No copy-pasting code into separate chat windows. Get structured, context-aware analysis inside your workspace.</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-glow"></div>
+          <div class="feature-icon">🔌</div>
+          <h3>Auto-Extraction</h3>
+          <p>Instantly reads your submission details — language, runtime, memory, and code — once you click submit. No manual copying needed.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-glow"></div>
+          <div class="feature-icon">🔮</div>
+          <h3>Multi-Model Support</h3>
+          <p>Connect your own API key to use GPT-4o, Gemini, Groq, OpenRouter, or running local models via Ollama & LM Studio.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-glow"></div>
+          <div class="feature-icon">📊</div>
+          <h3>Structured Tabs</h3>
+          <p>Analysis is organized into 6 interactive tabs matching LeetCode's design: Approach, Efficiency, Code Style, Bugs, Optimize, and Interview.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-glow"></div>
+          <div class="feature-icon">🎯</div>
+          <h3>Interview Simulator</h3>
+          <p>Practice with realistic, adaptive follow-up questions generated directly from your written solution to simulate real technical interviews.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-glow"></div>
+          <div class="feature-icon">🔒</div>
+          <h3>100% Privacy First</h3>
+          <p>Your keys and code stay inside your browser. Everything runs locally or makes direct secure requests. Zero user data is stored on our servers.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-glow"></div>
+          <div class="feature-icon">🚀</div>
+          <h3>Zero Context-Switching</h3>
+          <p>Review and fix bugs side-by-side with your code editor. Analyze and iterate in seconds to keep your focus intact.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live LeetCode Simulator Section -->
+  <section class="simulator-section" id="demo">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">See LeetCoach in Action</h2>
+        <p class="section-subtitle">Click the tabs on the right side of our simulated editor to see how the AI analyzes submissions.</p>
+      </div>
+
+      <!-- Editor Simulator Layout -->
+      <div class="simulator-container">
+        <!-- Left Editor Side -->
+        <div class="editor-side">
+          <div class="editor-header">
+            <div class="editor-circles">
+              <span class="circle red"></span>
+              <span class="circle yellow"></span>
+              <span class="circle green"></span>
+            </div>
+            <div class="editor-tab">two_sum.py</div>
+          </div>
+          <div class="editor-code">
+            <div class="code-lines">
+              <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span>
+            </div>
+            <pre><code><span class="c-keyword">class</span> <span class="c-class">Solution</span>:
+    <span class="c-keyword">def</span> <span class="c-function">twoSum</span>(self, nums: List[int], target: int) -> List[int]:
+        <span class="c-comment"># Optimized two-pass with a hashmap</span>
+        prevMap = {} <span class="c-comment"># val -> index</span>
+        
+        <span class="c-keyword">for</span> i, n <span class="c-keyword">in</span> <span class="c-function">enumerate</span>(nums):
+            diff = target - n
+            <span class="c-keyword">if</span> diff <span class="c-keyword">in</span> prevMap:
+                <span class="c-keyword">return</span> [prevMap[diff], i]
+            prevMap[n] = i
+            
+        <span class="c-keyword">return</span> [] <span class="c-comment"># No solution found</span></code></pre>
+          </div>
+          <div class="editor-footer">
+            <span class="editor-stats">✓ Accepted  |  Time: 36ms (88.4%)  |  Memory: 17.6MB</span>
+          </div>
+        </div>
+
+        <!-- Right Extension Sidebar Side -->
+        <div class="sidebar-side">
+          <div class="sidebar-header">
+            <div class="sidebar-title">⚡ LeetCoach Review</div>
+            <div class="sidebar-tabs">
+              <button class="sidebar-tab-btn active" data-tab="approach">Approach</button>
+              <button class="sidebar-tab-btn" data-tab="efficiency">Efficiency</button>
+              <button class="sidebar-tab-btn" data-tab="style">Style</button>
+              <button class="sidebar-tab-btn" data-tab="bugs">Bugs</button>
+              <button class="sidebar-tab-btn" data-tab="interview">Interview</button>
+            </div>
+          </div>
+          
+          <div class="sidebar-content-panel">
+            <!-- Approach Tab -->
+            <div class="tab-panel active" id="panel-approach">
+              <div class="panel-section">
+                <h4>Algorithm Summary</h4>
+                <p>You solved this using a Single-Pass Hash Map (complement mapping). By caching previous values and checking for <code>target - n</code>, you perform lookups in <code>O(1)</code> instead of a nested <code>O(N²)</code> brute force scan.</p>
+              </div>
+              <div class="panel-section">
+                <h4>Complexity</h4>
+                <div class="complexity-metrics">
+                  <div class="metric"><span class="label">Time Complexity:</span> <span class="value">O(N)</span></div>
+                  <div class="metric"><span class="label">Space Complexity:</span> <span class="value">O(N)</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Efficiency Tab -->
+            <div class="tab-panel" id="panel-efficiency">
+              <div class="panel-section">
+                <h4>Performance Analysis</h4>
+                <p>Your runtime is <strong>36ms</strong>, beating 88.4% of Python submissions. The hash map ensures we only traverse the array once.</p>
+                <p>Memory usage is <strong>17.6MB</strong>. Space overhead is proportional to the number of elements in <code>nums</code> stored in the hash map.</p>
+              </div>
+            </div>
+
+            <!-- Style Tab -->
+            <div class="tab-panel" id="panel-style">
+              <div class="panel-section">
+                <h4>Code Readability</h4>
+                <ul>
+                  <li>✅ Clear variable naming (<code>prevMap</code>, <code>diff</code>).</li>
+                  <li>✅ Pythonic use of <code>enumerate()</code>.</li>
+                  <li>💡 Clean PEP 8 spacing around operators.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Bugs Tab -->
+            <div class="tab-panel" id="panel-bugs">
+              <div class="panel-section">
+                <h4>Detected Issues</h4>
+                <p class="status-success">🎉 No logic bugs detected. Your solution covers all standard test suites correctly, including cases with negative numbers and duplicate elements.</p>
+              </div>
+            </div>
+
+            <!-- Interview Tab -->
+            <div class="tab-panel" id="panel-interview">
+              <div class="panel-section">
+                <h4>Follow-up Questions</h4>
+                <p class="question">Q: How would you modify the solution if the input array is already sorted? Can you solve it in O(1) space?</p>
+                <div class="hint-box">
+                  <strong>Hint:</strong> If the array is sorted, you can use the <strong>Two-Pointer Approach</strong> starting at the beginning and the end, adjusting them based on the sum relative to target. This reduces space to O(1).
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="pricing-section" id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Transparent, Developer-Friendly Pricing</h2>
+        <p class="section-subtitle">Use your own API key for full control, or choose Pro for seamless premium model access.</p>
+        
+        <!-- Billing Toggle -->
+        <div class="toggle-container">
+          <span>Monthly</span>
+          <label class="switch">
+            <input type="checkbox" id="billing-toggle">
+            <span class="slider"></span>
+          </label>
+          <span>Yearly (Save 33%)</span>
+        </div>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Free Tier -->
+        <div class="pricing-card">
+          <div class="tier-name">Free</div>
+          <div class="price-display">
+            <span class="currency">$</span><span class="price-num">0</span><span class="period">/mo</span>
+          </div>
+          <p class="tier-desc">Perfect for casual practice and local setups.</p>
+          <ul class="pricing-features">
+            <li>10 monthly free AI reviews</li>
+            <li>Use your own API keys (Unlimited)</li>
+            <li>All 6 review categories</li>
+            <li>Connect local models (Ollama, LM Studio)</li>
+            <li>Standard prompt customization</li>
+          </ul>
+          <a href="#install" class="pricing-btn">Get Started Free</a>
+        </div>
+
+        <!-- Pro Tier -->
+        <div class="pricing-card popular">
+          <div class="popular-badge">Most Popular</div>
+          <div class="tier-name">Pro</div>
+          <div class="price-display">
+            <span class="currency">$</span><span class="price-num" id="pro-price">6</span><span class="period" id="pro-period">/mo</span>
+          </div>
+          <p class="tier-desc">Accelerate your technical prep with zero restrictions.</p>
+          <ul class="pricing-features">
+            <li><strong>Unlimited</strong> AI code reviews</li>
+            <li>Instant access to Claude 3.5 Sonnet & GPT-4o</li>
+            <li>Adaptive Interview Follow-up simulator</li>
+            <li>Weakness tracking & progress history</li>
+            <li>Priority low-latency server queues</li>
+            <li>24/7 Priority developer support</li>
+          </ul>
+          <a href="#install" class="pricing-btn premium-btn">Go Pro Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Install Section -->
+  <section class="cta-section" id="install">
+    <div class="container cta-box">
+      <div class="cta-glow"></div>
+      <h2>Boost Your Problem-Solving Speed</h2>
+      <p>Install LeetCoach in seconds, plug in your API key or activate Pro, and start refining your interview technique today.</p>
+      
+      <div class="install-actions">
+        <a href="#" class="btn-install" id="install-btn-chrome">
+          <span class="browser-icon">🌐</span> Add to Chrome Store
+        </a>
+        <a href="#" class="btn-install" id="install-btn-edge">
+          <span class="browser-icon">📐</span> Add to Edge Add-ons
+        </a>
+      </div>
+      <p class="cta-note">Compatible with Chromium-based browsers including Microsoft Edge, Chrome, Brave, and Opera.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo-lightning">⚡</span> LeetCoach
+      </div>
+      <div class="footer-links">
+        <a href="#features">Features</a>
+        <a href="#demo">Demo</a>
+        <a href="#pricing">Pricing</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+      </div>
+      <p class="footer-copy">© 2026 LeetCoach. Built by engineers, for engineers. LeetCode is a registered trademark of LeetCode, LLC.</p>
+    </div>
+  </footer>
+
+  <!-- GSAP & Three.js Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  
+  <!-- Interactive Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>

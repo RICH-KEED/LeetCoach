@@ -1,0 +1,19 @@
+{
+  "name": "leetcoach",
+  "version": "1.0.0",
+  "description": "Chrome Extension that analyzes LeetCode submissions using OpenAI-compatible APIs",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "build:watch": "vite build --watch",
+    "preview": "vite preview",
+    "lint": "tsc --noEmit",
+    "zip": "node zip-extension.js"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.268",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.12"
+  }
+}

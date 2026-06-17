@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LeetCoach</title>
+  <link rel="stylesheet" href="sidebar.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="sidebar-header">
+      <div class="logo">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">LeetCoach</span>
+      </div>
+      <button id="close-btn" class="icon-btn" title="Close">✕</button>
+    </header>
+
+    <div id="loading" class="loading-overlay hidden">
+      <div class="spinner"></div>
+      <p>Analyzing your code with AI...</p>
+    </div>
+
+    <div id="error" class="error-banner hidden">
+      <span id="error-text"></span>
+      <button id="retry-btn" class="btn btn-small">Retry</button>
+    </div>
+
+    <div id="submission-info" class="submission-info hidden">
+      <h2 id="problem-title" class="problem-title"></h2>
+      <div class="meta-tags">
+        <span id="lang-tag" class="tag tag-purple"></span>
+        <span id="status-tag" class="tag"></span>
+        <span id="runtime-tag" class="tag tag-green"></span>
+        <span id="memory-tag" class="tag tag-green"></span>
+      </div>
+    </div>
+
+    <nav class="tab-bar">
+      <button class="tab-btn active" data-tab="approach">Approach</button>
+      <button class="tab-btn" data-tab="efficiency">Efficiency</button>
+      <button class="tab-btn" data-tab="style">Style</button>
+      <button class="tab-btn" data-tab="bugs">Bugs</button>
+      <button class="tab-btn" data-tab="improvements">Improve</button>
+      <button class="tab-btn" data-tab="interview">Interview</button>
+    </nav>
+
+    <main id="content" class="content">
+      <div id="empty-state" class="empty-state">
+        <div class="empty-icon">📝</div>
+        <p>Submit your solution on LeetCode to get AI feedback.</p>
+        <button id="analyze-btn" class="btn btn-primary">Analyze Now</button>
+      </div>
+
+      <div id="tab-approach" class="tab-panel hidden">
+        <div id="verdict" class="verdict-card"></div>
+        <section class="card">
+          <h3>Approach</h3>
+          <p id="approach-summary" class="highlight"></p>
+          <p id="approach-explanation"></p>
+        </section>
+        <section class="card">
+          <h3>Complexity Analysis</h3>
+          <table class="complexity-table">
+            <thead>
+              <tr>
+                <th>Case</th>
+                <th>Time</th>
+                <th>Space</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Best</td>
+                <td id="time-best" class="mono"></td>
+                <td id="space-best" class="mono"></td>
+              </tr>
+              <tr>
+                <td>Average</td>
+                <td id="time-average" class="mono"></td>
+                <td id="space-average" class="mono"></td>
+              </tr>
+              <tr>
+                <td>Worst</td>
+                <td id="time-worst" class="mono"></td>
+                <td id="space-worst" class="mono"></td>
+              </tr>
+            </tbody>
+          </table>
+          <p id="complexity-explanation"></p>
+        </section>
+        <section class="card">
+          <h3>Alternative Solutions</h3>
+          <div id="alternatives-list"></div>
+        </section>
+      </div>
+
+      <div id="tab-efficiency" class="tab-panel hidden">
+        <section class="card">
+          <h3>Efficiency Score</h3>
+          <div class="score-row">
+            <div class="score-ring" id="efficiency-score"></div>
+            <p id="efficiency-notes"></p>
+          </div>
+        </section>
+      </div>
+
+      <div id="tab-style" class="tab-panel hidden">
+        <section class="card">
+          <h3>Code Style Score</h3>
+          <div class="score-row">
+            <div class="score-ring" id="style-score"></div>
+            <p id="style-notes"></p>
+          </div>
+        </section>
+      </div>
+
+      <div id="tab-bugs" class="tab-panel hidden">
+        <section class="card">
+          <h3>Bugs & Issues</h3>
+          <div id="bugs-list"></div>
+        </section>
+      </div>
+
+      <div id="tab-improvements" class="tab-panel hidden">
+        <section class="card">
+          <h3>Suggested Improvements</h3>
+          <div id="improvements-list"></div>
+        </section>
+      </div>
+
+      <div id="tab-interview" class="tab-panel hidden">
+        <section class="card">
+          <h3>Interview Follow-ups</h3>
+          <div id="interview-list"></div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="sidebar-footer">
+      <a href="#" id="open-settings">⚙️ Settings</a>
+    </footer>
+  </div>
+
+  <script type="module" src="sidebar.ts"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+LeetCoach - AI Code Review for LeetCode
+
+Get instant, structured AI feedback on every LeetCode submission — without leaving the page.
+
+LeetCoach automatically extracts your problem statement, code, language, runtime, and memory usage after you submit, then sends it to your preferred AI provider for detailed analysis.
+
+WHAT YOU GET:
+• Approach Analysis — Understand the algorithm you used and why it works
+• Complexity Breakdown — Time & space complexity with detailed explanations
+• Efficiency Score — See how your solution compares to the optimal approach
+• Code Style Review — Get tips on readability, naming, and best practices
+• Bug Detection — Find edge cases and potential issues before interviews
+• Improvement Suggestions — Concrete refactors with code examples
+• Alternative Solutions — Learn different approaches and when to use them
+• Interview Follow-ups — Practice with realistic follow-up questions
+
+SUPPORTED AI PROVIDERS:
+• OpenAI (GPT-4o, GPT-4o-mini)
+• Google Gemini
+• Groq (Llama, Mixtral, Gemma)
+• OpenRouter (access 100+ models)
+• Custom / Local endpoints (Ollama, LM Studio, etc.)
+
+HOW IT WORKS:
+1. Solve a LeetCode problem and hit Submit
+2. LeetCoach detects your result and extracts all relevant data
+3. AI analyzes your solution in seconds
+4. Browse structured feedback in the LeetCode-styled sidebar
+
+Your API key is stored securely in Chrome sync storage. We never see or store your code.
+
+Free to use. Upgrade to Pro for unlimited analyses, priority models, and learning insights.

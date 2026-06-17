@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LeetCoach Settings</title>
+  <link rel="stylesheet" href="settings.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="page-header">
+      <h1>⚡ LeetCoach Settings</h1>
+      <p>Configure your AI provider to power code analysis.</p>
+    </header>
+
+    <form id="settings-form" class="settings-form">
+      <div class="form-group">
+        <label for="provider">Provider Preset</label>
+        <select id="provider">
+          <option value="OpenAI">OpenAI</option>
+          <option value="Gemini">Google Gemini</option>
+          <option value="Groq">Groq</option>
+          <option value="OpenRouter">OpenRouter</option>
+          <option value="Custom">Custom / Local</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="baseUrl">Base URL</label>
+        <input type="url" id="baseUrl" placeholder="https://api.openai.com/v1" required />
+        <span class="hint">OpenAI-compatible chat completions endpoint base.</span>
+      </div>
+
+      <div class="form-group">
+        <label for="model">Model</label>
+        <input type="text" id="model" placeholder="gpt-4o-mini" required />
+        <span class="hint">Model name supported by your provider.</span>
+      </div>
+
+      <div class="form-group">
+        <label for="apiKey">API Key</label>
+        <input type="password" id="apiKey" placeholder="sk-..." required />
+        <span class="hint">Stored securely in Chrome sync storage.</span>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="temperature">Temperature</label>
+          <input type="number" id="temperature" step="0.1" min="0" max="2" value="0.3" required />
+        </div>
+        <div class="form-group">
+          <label for="maxTokens">Max Tokens</label>
+          <input type="number" id="maxTokens" step="1" min="100" max="16000" value="4096" required />
+        </div>
+      </div>
+
+      <div class="actions">
+        <button type="button" id="test-btn" class="btn btn-secondary">Test Connection</button>
+        <button type="submit" class="btn btn-primary">Save Settings</button>
+      </div>
+
+      <div id="test-result" class="test-result hidden"></div>
+      <div id="save-result" class="save-result hidden"></div>
+    </form>
+
+    <section class="info-section">
+      <h2>Supported Providers</h2>
+      <ul>
+        <li><strong>OpenAI</strong> — GPT-4o, GPT-4o-mini, GPT-4-turbo</li>
+        <li><strong>Google Gemini</strong> — gemini-1.5-flash, gemini-1.5-pro (via OpenAI-compatible endpoint)</li>
+        <li><strong>Groq</strong> — llama3, mixtral, gemma at blazing speed</li>
+        <li><strong>OpenRouter</strong> — Access many models through a single API</li>
+        <li><strong>Custom / Local</strong> — Any OpenAI-compatible server (Ollama, LM Studio, etc.)</li>
+      </ul>
+    </section>
+  </div>
+
+  <script type="module" src="settings.ts"></script>
+</body>
+</html>
