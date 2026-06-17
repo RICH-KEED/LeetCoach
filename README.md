@@ -14,6 +14,19 @@ LeetCoach is a premium, high-performance browser extension designed to help soft
 
 ---
 
+## 🎥 Interactive Showcase
+
+### 1. Animated Landing Page
+![Landing Page Premium Theme](./media/landing_demo.png)
+
+### 2. Extension Settings (Connection Test)
+![Settings Interface](./media/settings_demo.png)
+
+### 3. Setup Walkthrough Video
+![LeetCoach Walkthrough](./media/leetcoach_premium_walkthrough.webp)
+
+---
+
 ## 🛠️ Project Structure
 
 ```text
