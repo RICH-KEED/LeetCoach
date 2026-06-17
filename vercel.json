@@ -6,8 +6,16 @@
       "destination": "/downloads/landing/privacy-policy.html"
     },
     {
-      "source": "/(.*)",
-      "destination": "/downloads/landing/$1"
+      "source": "/style.css",
+      "destination": "/downloads/landing/style.css"
+    },
+    {
+      "source": "/script.js",
+      "destination": "/downloads/landing/script.js"
+    },
+    {
+      "source": "/",
+      "destination": "/downloads/landing/index.html"
     }
   ]
 }
