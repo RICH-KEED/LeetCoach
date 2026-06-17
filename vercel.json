@@ -3,7 +3,7 @@
   "rewrites": [
     {
       "source": "/privacy-policy",
-      "destination": "/downloads/landing/privacy-policy.html"
+      "destination": "/downloads/landing/privacy-policy"
     },
     {
       "source": "/style.css",
