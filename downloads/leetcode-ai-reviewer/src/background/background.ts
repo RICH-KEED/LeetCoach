@@ -259,3 +259,21 @@ chrome.action.onClicked.addListener(async (tab) => {
     });
   }
 });
+
+// Handle extension install/update lifecycle for Welcome and "What's New" tabs
+chrome.runtime.onInstalled.addListener((details) => {
+  if (details.reason === 'install') {
+    // Open onboarding/welcome page on first install
+    chrome.tabs.create({ url: 'https://leetcoach.vercel.app/welcome' }).catch(() => {});
+  } else if (details.reason === 'update') {
+    const previousVersion = details.previousVersion;
+    const currentVersion = chrome.runtime.getManifest().version;
+    
+    // Only open if there is a major/minor version change to avoid spamming on tiny patch changes
+    if (previousVersion !== currentVersion) {
+      chrome.tabs.create({ 
+        url: `https://leetcoach.vercel.app/whats-new?from=${previousVersion}&to=${currentVersion}` 
+      }).catch(() => {});
+    }
+  }
+});
