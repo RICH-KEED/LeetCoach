@@ -1,9 +1,9 @@
 {
-  "cleanUrls": true,
+  "cleanUrls": false,
   "rewrites": [
     {
       "source": "/privacy-policy",
-      "destination": "/downloads/landing/privacy-policy"
+      "destination": "/downloads/landing/privacy-policy.html"
     },
     {
       "source": "/style.css",
